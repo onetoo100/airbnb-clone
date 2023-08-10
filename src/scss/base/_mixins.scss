@@ -1,0 +1,55 @@
+@use "variables" as v;
+
+/** Media Queries **/
+@mixin telefono {
+  @media (min-width: v.$telefono) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: v.$tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: v.$desktop) {
+    @content;
+  }
+}
+
+@mixin boton($bgColor, $colorTexto) {
+  background-color: $bgColor;
+  padding: 2rem 4rem;
+  color: $colorTexto;
+  margin-top: 1rem;
+  border-radius: 3rem;
+  font-size: 2rem;
+  font-weight: 700;
+  display: block;
+
+  @include tablet {
+    display: inline-block;
+  }
+}
+
+@mixin grid($columnas, $espaciado) {
+  display: grid;
+  gap: $espaciado;
+  grid-template-columns: repeat($columnas, 1fr);
+}
+
+@mixin scrollHorizontal {
+  /* escondemos el scroll de arriba hacia abajo con el overflow-y,
+    luego agregamos scroll hacia los lados con el overflow-x: scroll. */
+  overflow-y: hidden;
+  overflow-x: scroll;
+  /* unicamente scroll en X */
+  scroll-snap-type: x mandatory;
+  /* pasamos los items al lado y el elemento queda centralizado en el centro.
+    el ' > * ' quiere decir para seleccionar el primer hijo de cualquier elemento */
+  > * {
+    scroll-snap-align: center;
+  }
+}
