@@ -14,7 +14,7 @@ const Footer = () => {
                 : "Asistencia"}
             </h3>
             <nav className="footer__menu">
-              {[1, 2, 3, 4].map((e, index) => (
+              {[1, 2, 3, 4].map((index) => (
                 <a key={index} className="footer__enlace" href="#">
                   Lorem ipsum dolor sit
                 </a>
